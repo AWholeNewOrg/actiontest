@@ -1,5 +1,5 @@
 name: checkcheck
-on: [ push, pull_request, workflow_dispatch ]
+on: [ push, pull_request, workflow_dispatch, delete ]
 jobs:
   hellodocker:
     name: hellodocker
