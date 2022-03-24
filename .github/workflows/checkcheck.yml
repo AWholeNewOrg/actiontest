@@ -1,6 +1,14 @@
 name: checkcheck
 on: [ push, pull_request, workflow_dispatch ]
 jobs:
+  hellodocker:
+    name: hellodocker
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: .github/actions/hellodocker
+        with:
+          who-to-greet: "world"
   something-else:
     name: something-else
     runs-on: ubuntu-20.04
