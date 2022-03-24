@@ -1,9 +1,0 @@
-name: ci
-on: [push, pull_request, workflow_dispatch]
-jobs:
-  authcheck:
-    runs-on: ubuntu-20.04
-    steps:
-      - run: git config -l --show-origin
-      - uses: actions/checkout@v2
-      - run: git config -l --show-origin
