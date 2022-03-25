@@ -10,7 +10,8 @@ outputs:
     description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: ghcr.io/willabides/actiontest:docker
+#  image: ghcr.io/willabides/actiontest:docker
+  image: Dockerfile
   args:
     - ${{ inputs.who-to-greet }}
   env:
