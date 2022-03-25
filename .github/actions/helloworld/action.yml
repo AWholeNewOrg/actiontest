@@ -1,0 +1,14 @@
+name: 'Hello World'
+description: 'Greet someone'
+inputs:
+  cache-prefix:
+    description: prefix for cache indices
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: echo "hello world"
+      shell: sh
+    - name: Dump job context
+      shell: sh
+      run: echo cache-prefix:${{ inputs.cache-prefix }}
