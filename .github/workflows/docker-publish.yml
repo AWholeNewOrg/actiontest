@@ -8,7 +8,7 @@ on:
       - 'v*'
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: willabides/actiontest
+  IMAGE_NAME: awholeneworg/actiontest
 
 jobs:
   build:
