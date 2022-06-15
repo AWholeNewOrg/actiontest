@@ -1,0 +1,54 @@
+name: matrix test
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      x:
+        description: manual override for x
+        type: choice
+        required: true
+        options:
+          - 'a'
+          - 'b'
+          - 'c'
+      y:
+        description: manual override for y
+        type: choice
+        options:
+          - '1'
+          - '2'
+          - '3'
+        required: true
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - id: set-matrix
+        run: |
+          x=${{github.event.inputs.x}}
+          if [ -z ${x} ]; then
+            echo "::set-output name=x::['a','b','c']"
+          else
+            echo "::set-output name=x::['${x}']"
+          fi
+
+          y=${{github.event.inputs.y}}
+          if [ -z ${y} ]; then
+            echo "::set-output name=y::['1','2','3']"
+          else
+            echo "::set-output name=y::['${y}']"
+          fi
+    outputs:
+      x: ${{ steps.set-matrix.outputs.x }}
+      y: ${{ steps.set-matrix.outputs.y }}
+  my_job:
+    needs: setup
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        x: ${{fromJSON(needs.setup.outputs.x)}}
+        y: ${{fromJSON(needs.setup.outputs.y)}}
+    steps:
+      - run: echo ${{matrix.x}}${{matrix.y}}
