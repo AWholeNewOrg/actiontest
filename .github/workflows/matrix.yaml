@@ -1,16 +1,16 @@
 name: dispatch test
-
-on:
-  workflow_dispatch:
-    inputs:
-      x:
-        description: manual override for x
-        type: choice
-        required: true
-        options:
-          - 'a'
-          - 'b'
-          - 'c'
+on: push
+#on:
+#  workflow_dispatch:
+#    inputs:
+#      x:
+#        description: manual override for x
+#        type: choice
+#        required: true
+#        options:
+#          - 'a'
+#          - 'b'
+#          - 'c'
 
 jobs:
   my_job:
@@ -22,4 +22,4 @@ jobs:
           ls -haltr
       - uses: ./.github/workflows/reusable.yaml
         with:
-          x: ${{ inputs.x }}
+          x: foo
