@@ -9,6 +9,12 @@ jobs:
       - uses: ./
         with:
           who-to-greet: "world"
+  helloworld:
+    name: helloworld
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/helloworld/action.yml
 #  something-else:
 #    name: something-else
 #    runs-on: ubuntu-20.04
