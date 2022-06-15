@@ -17,6 +17,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: |
+          pwd
+          ls -haltr
       - uses: ./.github/workflows/reusable.yaml
         with:
           x: ${{ inputs.x }}
