@@ -21,8 +21,16 @@ runs:
           echo "time=$time" >> "$GITHUB_OUTPUT"
       - id: dump-env
         shell: sh
+        run: env
+      - id: explore
+        shell: sh
         run: |
-          env
+          set -x
+          cd "$GITHUB_ACTION_PATH"
+          pwd
+          ls -haltr
+          git status
+          git rev-list HEAD --count
 
   
 
