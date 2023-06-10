@@ -11,4 +11,5 @@ runs:
       shell: sh
     - name: Dump job context
       shell: sh
-      run: echo cache-prefix:${{ inputs.cache-prefix }}
+      run: |
+        env
