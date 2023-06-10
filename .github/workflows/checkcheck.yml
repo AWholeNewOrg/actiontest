@@ -13,8 +13,8 @@ jobs:
     name: helloworld
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
-      - uses: ./.github/actions/helloworld/
+#      - uses: actions/checkout@v2
+      - uses: AWholeNewOrg/actiontest@v1.0.0
 #  something-else:
 #    name: something-else
 #    runs-on: ubuntu-20.04
