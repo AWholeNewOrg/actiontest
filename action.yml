@@ -17,7 +17,12 @@ runs:
         run: |
           echo "Hello ${{ inputs.who-to-greet }}!"
           time="$(date)"
-          echo "::set-output name=time::$time"
+          # echo "::set-output name=time::$time"
+          echo "time=$time" >> "$GITHUB_OUTPUT"
+      - id: dump env
+        shell: sh
+        run: |
+          env
 
   
 
