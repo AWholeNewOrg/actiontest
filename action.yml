@@ -19,7 +19,7 @@ runs:
           time="$(date)"
           # echo "::set-output name=time::$time"
           echo "time=$time" >> "$GITHUB_OUTPUT"
-      - id: dump env
+      - id: dump-env
         shell: sh
         run: |
           env
