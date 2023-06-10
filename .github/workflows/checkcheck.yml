@@ -1,5 +1,6 @@
 name: checkcheck
 on: [ push, pull_request, workflow_dispatch, delete ]
+
 jobs:
   hellodocker:
     name: hellodocker
@@ -10,8 +11,14 @@ jobs:
         with:
           who-to-greet: "world"
   helloworld:
+    strategy:
+      matrix:
+        platform:
+          - ubuntu-22.04
+          - macos-13
+          - windows-2022
     name: helloworld
-    runs-on: ubuntu-20.04
+    runs-on: ${{ matrix.platform }}
     steps:
 #      - uses: actions/checkout@v2
       - uses: AWholeNewOrg/actiontest@v1.0.2
